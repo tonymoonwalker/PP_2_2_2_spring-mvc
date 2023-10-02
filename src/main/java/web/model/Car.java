@@ -3,9 +3,17 @@ package web.model;
 public class Car {
 
     private String model;
+
     private int plateNumber;
+
     private boolean isAmphibian;
+
     public Car() {
+    }
+    public Car(String model, int plateNumber, boolean isAmphibian) {
+        this.model = model;
+        this.plateNumber = plateNumber;
+        this.isAmphibian = isAmphibian;
     }
     public String getModel() {
         return model;
@@ -29,5 +37,9 @@ public class Car {
 
     public void setIsAmphibian(boolean amphibian) {
         isAmphibian = amphibian;
+    }
+
+    public String toString() {
+        return null;
     }
 }

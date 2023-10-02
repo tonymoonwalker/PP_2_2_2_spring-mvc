@@ -7,9 +7,18 @@
 </head>
 <body>
 <div>
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+    <table>
+        <tr>
+            <th>MODEL</th>
+            <th>Plate Number</th>
+            <th>Can ride on water?</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getModel()}" th:align="left"></td>
+            <td th:text="${car.getPlateNumber()}" th:align="center"></td>
+            <td th:text="${car.getIsAmphibian()} == true ? 'yes' : 'no'" th:align="center"></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

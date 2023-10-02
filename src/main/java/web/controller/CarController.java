@@ -3,6 +3,7 @@ package web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +12,15 @@ import java.util.List;
 public class CarController {
     @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
-        List<String> messages = new ArrayList<>();
-        messages.add("Hello!");
-        messages.add("I'm Spring MVC application");
-        messages.add("This is the car page");
-        model.addAttribute("messages", messages);
+        List<Car> cars = new ArrayList<>();
+        cars.add(new Car("Model S", 121, true));
+        cars.add(new Car("Model Y", 122, false));
+        cars.add(new Car("Model B", 123, false));
+        cars.add(new Car("Model K", 124, true));
+        cars.add(new Car("Model L", 125, true));
+        model.addAttribute("cars", cars);
+
+//        model.addAttribute("messages", messages);
         return "cars";
     }
 }
