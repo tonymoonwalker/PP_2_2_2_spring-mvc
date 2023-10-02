@@ -9,8 +9,13 @@ import java.util.List;
 
 @Controller
 public class CarController {
-    @GetMapping(value = "/")
+    @GetMapping(value = "/cars")
     public String printWelcome(ModelMap model) {
+        List<String> messages = new ArrayList<>();
+        messages.add("Hello!");
+        messages.add("I'm Spring MVC application");
+        messages.add("This is the car page");
+        model.addAttribute("messages", messages);
         return "cars";
     }
 }
