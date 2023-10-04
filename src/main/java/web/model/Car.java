@@ -39,7 +39,13 @@ public class Car {
         isAmphibian = amphibian;
     }
 
+    @Override
     public String toString() {
-        return null;
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", plateNumber=" + plateNumber +
+                ", isAmphibian=" + isAmphibian +
+                '}';
     }
+
 }
