@@ -12,24 +12,9 @@ import java.util.List;
 
 @Controller
 public class CarController {
-//    @GetMapping(value = "/cars")
-    /*public String showCars(@RequestParam(name = "count", required = false) Integer count, ModelMap model) {
-        AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(Car.class);
 
-        CarService userService = context.getBean(CarService.class);
-        List<Car> cars = userService.getCarList();
-        if (count != null && count < 5) {
-            cars = cars.subList(0, count);
-        }
-
-        model.addAttribute("cars", cars);
-        return "cars";
-    }*/
-
-    CarService carService; // Добавьте поле в классе CarController
-
-    @Autowired // Инъектируйте зависимость через аннотацию
+    CarService carService;
+    @Autowired
     public CarController(CarService carService) {
         this.carService = carService;
     }
@@ -37,6 +22,6 @@ public class CarController {
     public String showCars(@RequestParam(name = "count", required = false) Integer count, ModelMap model) {
         List<Car> cars = carService.getCarList(count);
         model.addAttribute("cars", cars);
-        return "cars"; // Вернуть имя представления
+        return "cars";
     }
 }
